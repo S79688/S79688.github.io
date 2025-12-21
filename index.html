@@ -3,292 +3,279 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tuan Aleya Maythasha - Food Science UMT</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>Lab Timer | Case Study & Tool</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --color-background: #F8F9FA; /* Soft light grey/off-white */
-            --color-card-bg: #FFFFFF; /* Pure white for cards */
-            --color-text-primary: #212529; /* Dark grey/black */
-            --color-text-secondary: #6C757D; /* Medium grey for subtle text */
-            --color-accent: #004D99; /* Deep Ocean Blue (UMT Theme) */
-            --color-border: #E9ECEF; /* Very light grey border */
-            --font-family-sans: 'Inter', sans-serif;
-            --border-radius-lg: 16px;
-            --border-radius-sm: 10px;
-            --spacing-unit: 20px;
+            --bg-color: #f0f4f8;
+            --lab-blue: #2b6cb0;
+            --lab-light: #ebf8ff;
+            --accent-green: #48bb78;
+            --text-dark: #2d3748;
+            --border-color: #cbd5e0;
         }
 
-        /* Base styles and Typography */
         body {
-            font-family: var(--font-family-sans);
-            background-color: var(--color-background);
-            color: var(--color-text-primary);
             margin: 0;
-            padding: var(--spacing-unit);
-            line-height: 1.6;
-        }
-
-        h2, h3, h4 {
-            margin-top: 0;
-            font-weight: 800;
-            line-height: 1.2;
-        }
-
-        a {
-            color: var(--color-accent);
-            text-decoration: none;
-            transition: color 0.2s ease-in-out;
-        }
-
-        a:hover {
-            color: #003366; /* Darker accent on hover */
-        }
-
-        /* Bento Grid Container */
-        .bento-grid-container {
-            display: grid;
-            gap: var(--spacing-unit);
-            max-width: 1200px;
-            margin: 0 auto;
-            grid-template-columns: repeat(4, 1fr); /* 4 columns on desktop */
-            grid-auto-rows: minmax(150px, auto); /* Consistent row height base */
-        }
-
-        /* Bento Card Styles */
-        .bento-card {
-            background-color: var(--color-card-bg);
-            border: 1px solid var(--color-border);
-            border-radius: var(--border-radius-lg);
-            padding: var(--spacing-unit);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            overflow: hidden;
-        }
-
-        .bento-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-header {
+            padding: 20px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            margin-bottom: 10px;
+            min-height: 100vh;
+            background-color: var(--bg-color);
+            background-image: radial-gradient(var(--border-color) 0.5px, transparent 0.5px);
+            background-size: 20px 20px;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
         }
 
-        .card-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--color-text-primary);
+        /* Layout Container */
+        .main-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-width: 900px;
+            width: 100%;
         }
 
-        .subtitle {
-            font-size: 0.9rem;
-            color: var(--color-text-secondary);
-            margin-bottom: 5px;
-        }
-
-        .large-text {
-            font-size: 1.8rem;
-            font-weight: 800;
-            margin-bottom: 5px;
-            color: var(--color-text-primary);
-        }
-        
-        /* Specific Card Sizing (Desktop) */
-        /* Card 1 (Profile): Large box (2x2) */
-        .card-profile {
-            grid-column: span 2;
-            grid-row: span 2;
+        /* Left Column: Case Study Card */
+        .case-study-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 2px solid var(--border-color);
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-        }
-        
-        /* Card 2 (Location): Small box (1x1) */
-        .card-location {
-            grid-column: span 1;
-            grid-row: span 1;
+            justify-content: center;
         }
 
-        /* Card 3 (Tech Stack / Subjects): Medium box (1x2) */
-        .card-tech-stack {
-            grid-column: span 1;
-            grid-row: span 2;
+        .case-study-card h2 {
+            margin-top: 0;
+            color: var(--lab-blue);
+            font-size: 1.5rem;
         }
 
-        /* Card 4 (Case Study): Medium box (1x1) - Fills the gap next to Location */
-        .card-case-study {
-            grid-column: span 1;
-            grid-row: span 1;
+        .case-study-card p {
+            line-height: 1.6;
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
         }
 
-        /* Card 5 (Hobby): Small box (1x1) - Sits below Location */
-        .card-hobby {
-            grid-column: span 1;
-            grid-row: span 1;
-        }
-        
-        /* Card 6 (Playlist): Wide box (4x1) - Full width at the bottom */
-        .card-playlist {
-            grid-column: span 4;
-            grid-row: span 1;
+        /* New External Link Button */
+        .btn-external {
+            display: inline-block;
+            text-decoration: none;
+            background-color: var(--lab-blue);
+            color: white;
+            padding: 14px 24px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
         }
 
-        /* Utility Styles for Card Content */
-        .social-links {
-            margin-top: 15px;
-            display: flex;
-            flex-wrap: wrap;
+        .btn-external:hover {
+            background-color: white;
+            color: var(--lab-blue);
+            border-color: var(--lab-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(43, 108, 176, 0.2);
+        }
+
+        /* Right Column: Timer App */
+        .app-container {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border: 2px solid var(--border-color);
+        }
+
+        .status-header {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--lab-blue);
+            background: var(--lab-light);
+            padding: 4px 12px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+
+        .pet-display {
+            font-size: 6rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .analyzing {
+            animation: pulse 1.5s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .timer-display {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
             gap: 10px;
         }
 
-        .social-links a {
-            padding: 5px 10px;
-            background-color: var(--color-border);
-            border-radius: var(--border-radius-sm);
-            font-size: 0.9rem;
-            color: var(--color-text-primary);
+        .timer-btn {
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            cursor: pointer;
             font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.2s;
         }
 
-        .social-links a:hover {
-            background-color: var(--color-accent);
-            color: var(--color-card-bg);
+        .btn-start { background-color: var(--lab-blue); color: white; border: none; }
+        .btn-pause { background-color: white; color: var(--text-dark); }
+        .btn-reset { background-color: #edf2f7; color: #a0aec0; }
+
+        .timer-btn:hover:not(:disabled) {
+            filter: brightness(0.95);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
-        .subject-list {
-            list-style: none;
-            padding: 0;
-            margin: 10px 0 0 0;
+        .timer-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
         }
 
-        .subject-list li {
-            padding: 8px 0;
-            border-bottom: 1px dashed var(--color-border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 1rem;
-        }
-
-        .subject-list li:last-child {
-            border-bottom: none;
-        }
-
-        .subject-list .icon {
-            color: var(--color-accent);
-            font-weight: 800;
-        }
-
-        .time-display {
-            text-align: center;
-            margin-top: 10px;
-        }
-
-        .time-display .time {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--color-accent);
-            display: block;
-        }
-        
-        .tagline {
-            font-style: italic;
-            margin-top: 5px;
-            font-weight: 600;
-            color: var(--color-accent);
-        }
-
-        /* Mobile Responsiveness */
+        /* Mobile Responsive */
         @media (max-width: 768px) {
-            .bento-grid-container {
-                grid-template-columns: 1fr; /* Single column on mobile */
-                grid-auto-rows: auto; /* Auto height for stacking */
-            }
-
-            /* All cards stack and take full width */
-            .bento-card {
-                grid-column: span 1 !important;
-                grid-row: auto !important;
-            }
-
-            .large-text {
-                font-size: 1.5rem;
-            }
-            
-            .time-display .time {
-                font-size: 2rem;
+            .main-wrapper {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="bento-grid-container">
+    <div class="main-wrapper">
+        <div class="case-study-card">
+            <h2>Research Project Alpha</h2>
+            <p>This study focuses on optimized incubation periods for cellular analysis. To support the workflow of our lab technicians, we developed a specialized timing tool.</p>
+            <a href="https://s79688.github.io/lab-timer-app/" class="btn-external">Try My Lab Timer App</a>
+        </div>
 
-        <div class="bento-card card-profile">
-            <div>
-                <span class="subtitle">Student Profile</span>
-                <h2 class="large-text">TUAN ALEYA MAYTHASHA</h2>
-                <h3 class="tagline">'Innovating food safety.'</h3>
-                <p>BSc. Food Science</p>
-                <p class="subtitle">Year 1</p>
-            </div>
+        <div class="app-container">
+            <div class="status-header" id="status">Standby: Ready</div>
+            <div class="pet-display" id="pet">🧪</div>
+            <div class="timer-display" id="timer">15:00</div>
             
-            <div class="social-links">
-                <a href="#">LinkedIn</a>
-                <a href="#">GitHub</a>
-                <a href="#">UMT Portal</a>
+            <div class="controls">
+                <button class="timer-btn btn-start" id="startBtn">START INCUBATION</button>
+                <button class="timer-btn btn-pause" id="pauseBtn">PAUSE</button>
+                <button class="timer-btn btn-reset" id="resetBtn">RESET</button>
             </div>
         </div>
-
-        <div class="bento-card card-location">
-            <span class="subtitle">Current Location & Time</span>
-            <h3 class="card-title">UMT, Kuala Nerus</h3>
-            <div class="time-display">
-                <span class="time">14:25</span>
-                <p>Sunday, Dec 14</p>
-            </div>
-        </div>
-
-        <div class="bento-card card-tech-stack">
-            <span class="subtitle">Current Semester Focus</span>
-            <h3 class="card-title">Foundation Subjects</h3>
-            <ul class="subject-list">
-                <li>Biochemistry <span class="icon">🔬</span></li>
-                <li>Organic Chemistry <span class="icon">🧪</span></li>
-                <li>Physical Chemistry <span class="icon">⚗️</span></li>
-                <li>General Math</li>
-                <li>Introduction to Food Science</li>
-            </ul>
-        </div>
-
-        <div class="bento-card card-case-study">
-            <span class="subtitle">Latest Research Insight</span>
-            <h3 class="card-title">Starch Gelatinization in Local Kuih</h3>
-            <p class="subtitle">Analyzing texture profiles of Kuih Lapis.</p>
-            <p>A hands-on experiment to understand how processing techniques affect the structural integrity and consumer quality of traditional Malaysian food.</p>
-        </div>
-
-        <div class="bento-card card-hobby">
-            <span class="subtitle">Personal Activity</span>
-            <h3 class="card-title">Evening Walks at Pantai UMT</h3>
-            <p>A perfect way to de-stress and enjoy the campus's unique coastal environment after a day of lab work.</p>
-        </div>
-        
-        <div class="bento-card card-playlist">
-            <div class="card-header">
-                <h3 class="card-title">Study Playlist</h3>
-                <span class="subtitle">Currently Listening</span>
-            </div>
-            <p class="large-text" style="color: var(--color-accent);">[ Placeholder: Integrated Music Player UI ]<<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/artist/6qqNVTkY8uBg9cP3Jd7DAH?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>/p>
-            <p>Ambient electronic music for focused study sessions.</p>
-        </div>
-
     </div>
 
+    <audio id="alarm">
+        <source src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg" type="audio/ogg">
+    </audio>
+
+    <script>
+        const DEFAULT_TIME = 15 * 60;
+        let timeLeft = DEFAULT_TIME;
+        let timerId = null;
+
+        const labStates = {
+            default: { emoji: '🧪', label: 'Standby: Ready' },
+            running: { emoji: '🔬', label: 'Status: Analyzing...' },
+            finished: { emoji: '✅', label: 'Result: Complete' }
+        };
+
+        const timerDisplay = document.getElementById('timer');
+        const petDisplay = document.getElementById('pet');
+        const statusText = document.getElementById('status');
+        const startBtn = document.getElementById('startBtn');
+        const pauseBtn = document.getElementById('pauseBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const alarm = document.getElementById('alarm');
+
+        function updateDisplay() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        function setAppState(state) {
+            const config = labStates[state] || labStates.default;
+            petDisplay.textContent = config.emoji;
+            statusText.textContent = config.label;
+
+            if (state === 'running') {
+                petDisplay.classList.add('analyzing');
+                startBtn.disabled = true;
+                pauseBtn.disabled = false;
+            } else if (state === 'finished') {
+                petDisplay.classList.remove('analyzing');
+                startBtn.disabled = true;
+                pauseBtn.disabled = true;
+                alarm.play();
+            } else {
+                petDisplay.classList.remove('analyzing');
+                startBtn.disabled = false;
+                pauseBtn.disabled = true;
+            }
+        }
+
+        function startTimer() {
+            if (timerId !== null) return;
+            setAppState('running');
+            timerId = setInterval(() => {
+                timeLeft--;
+                updateDisplay();
+                if (timeLeft <= 0) {
+                    clearInterval(timerId);
+                    timerId = null;
+                    setAppState('finished');
+                }
+            }, 1000);
+        }
+
+        function pauseTimer() {
+            clearInterval(timerId);
+            timerId = null;
+            setAppState('default');
+            statusText.textContent = "Status: Suspended";
+        }
+
+        function resetTimer() {
+            clearInterval(timerId);
+            timerId = null;
+            timeLeft = DEFAULT_TIME;
+            updateDisplay();
+            setAppState('default');
+        }
+
+        startBtn.addEventListener('click', startTimer);
+        pauseBtn.addEventListener('click', pauseTimer);
+        resetBtn.addEventListener('click', resetTimer);
+
+        updateDisplay();
+        pauseBtn.disabled = true;
+    </script>
 </body>
 </html>
