@@ -1,0 +1,42 @@
+Experimental Timer
+Precision Countdown: Defaults to a 15-minute incubation period specifically tuned for laboratory protocols.
+
+Visual State Feedback: Uses interactive icons to represent the current lab status:
+
+Standby (🧪): The system is ready for a new sample.
+
+Analyzing (🔬): An active countdown with a pulsing animation to indicate work in progress.
+
+Complete (✅): A clear visual checkmark and audio notification once the time has elapsed.
+
+Full Control: Includes professional-grade Start, Pause, and Reset functionality.
+
+📋 Protocol Checklist
+Step-by-Step Management: Add specific laboratory tasks or protocol steps to a dedicated checklist.
+
+Persistence: Tasks are saved to LocalStorage, ensuring that your protocol steps remain visible even after a page refresh.
+
+Interactive Progress: Click on any task to apply a strike-through effect, visually confirming completed steps.
+
+Batch Clear: Quickly wipe the checklist to prepare for the next round of experiments.
+
+🎨 Design & UI
+Scientific Blue Aesthetic: Features a clean, clinical interface with a high-contrast palette and a technical grid background.
+
+Case Study Integration: Includes a side panel for project context, featuring a "Try My Lab Timer App" call-to-action button with modern hover effects.
+
+Responsive Layout: Optimized for both desktop monitors and mobile devices used at a laboratory bench.
+
+🚀 Technical Stack
+HTML5/CSS3: Utilizes CSS variables and Flexbox/Grid for a robust, modern layout.
+
+Vanilla JavaScript: Lightweight logic for state management and timer precision.
+
+Web Storage API: Powers the persistent checklist feature.
+
+📂 Installation & Usage
+Download the index.html file.
+
+Open the file in any modern web browser.
+
+Enter your protocol steps in the checklist and click "Start Incubation" to begin your experiment.
