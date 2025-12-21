@@ -62,7 +62,7 @@
             margin-bottom: 2rem;
         }
 
-        /* New External Link Button */
+        /* New Column Button Style */
         .btn-external {
             display: inline-block;
             text-decoration: none;
@@ -175,7 +175,7 @@
         <div class="case-study-card">
             <h2>Research Project Alpha</h2>
             <p>This study focuses on optimized incubation periods for cellular analysis. To support the workflow of our lab technicians, we developed a specialized timing tool.</p>
-            <a href="https://s79688.github.io/lab-timer-app/" class="btn-external">Try My Lab Timer App</a>
+            <a href="https://s79688.github.io/" class="btn-external">Try My Lab Timer App</a>
         </div>
 
         <div class="app-container">
@@ -196,6 +196,7 @@
     </audio>
 
     <script>
+        // Configuration
         const DEFAULT_TIME = 15 * 60;
         let timeLeft = DEFAULT_TIME;
         let timerId = null;
@@ -206,6 +207,7 @@
             finished: { emoji: '✅', label: 'Result: Complete' }
         };
 
+        // DOM Elements
         const timerDisplay = document.getElementById('timer');
         const petDisplay = document.getElementById('pet');
         const statusText = document.getElementById('status');
@@ -274,6 +276,7 @@
         pauseBtn.addEventListener('click', pauseTimer);
         resetBtn.addEventListener('click', resetTimer);
 
+        // Initialize
         updateDisplay();
         pauseBtn.disabled = true;
     </script>
